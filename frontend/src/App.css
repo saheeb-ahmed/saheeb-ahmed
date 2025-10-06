@@ -1,0 +1,250 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background-color: #282c34;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  height: calc(100vh - 80px);
+}
+
+.map-container {
+  flex: 2;
+  position: relative;
+}
+
+.dashboard-container {
+  flex: 1;
+  background-color: #f5f5f5;
+  border-left: 1px solid #ddd;
+  overflow-y: auto;
+  min-width: 350px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #4caf50;
+}
+
+.status-dot.disconnected {
+  background-color: #f44336;
+}
+
+.vehicle-list {
+  padding: 1rem;
+}
+
+.vehicle-item {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vehicle-item:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+.vehicle-item.selected {
+  border-color: #2196f3;
+  background-color: #e3f2fd;
+}
+
+.vehicle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.vehicle-id {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.vehicle-status {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.vehicle-status.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.vehicle-status.inactive {
+  background-color: #f44336;
+  color: white;
+}
+
+.vehicle-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.stat-item {
+  text-align: left;
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.stat-value {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.command-panel {
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  background: white;
+}
+
+.command-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.command-btn {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #2196f3;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.command-btn:hover {
+  background-color: #1976d2;
+}
+
+.command-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.command-btn.danger {
+  background-color: #f44336;
+}
+
+.command-btn.danger:hover {
+  background-color: #d32f2f;
+}
+
+.history-panel {
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  background: white;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-time {
+  color: #666;
+  font-size: 0.8rem;
+}
+
+.history-location {
+  font-weight: bold;
+}
+
+.battery-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.battery-bar {
+  width: 60px;
+  height: 20px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.battery-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
+
+.battery-fill.low {
+  background-color: #ff9800;
+}
+
+.battery-fill.critical {
+  background-color: #f44336;
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    flex-direction: column;
+  }
+  
+  .dashboard-container {
+    min-width: unset;
+    max-height: 40vh;
+  }
+  
+  .vehicle-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .command-buttons {
+    grid-template-columns: 1fr;
+  }
+}
